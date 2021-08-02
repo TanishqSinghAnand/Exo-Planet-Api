@@ -1,9 +1,9 @@
 from flask import Flask , jsonify, request
 from data import data
-from flask_cors import CORS
+# from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
 
 @app.route('/')
 def data_planets():
