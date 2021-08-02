@@ -5,14 +5,16 @@ from data import data
 app = Flask(__name__)
 # CORS(app)
 
-@app.route('/')
+
+@app.route('/', methods=['GET'])
 def data_planets():
     return jsonify({
         "data" : data,
         "message" : "suceess"
     },200)
 
-@app.route('/data_planet')
+
+@app.route('/data_planet', methods=['GET'])
 def planetData():
     name = request.args.get("name")
     planet_data = next(item for item in data if item["name"] == name )
@@ -22,5 +24,5 @@ def planetData():
     },200)
 
 
-# if __name__ == "__main__":
-#     app.run()
+if __name__ == "__main__":
+    app.run()
